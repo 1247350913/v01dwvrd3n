@@ -10,6 +10,7 @@ body {
   background: #ffffff;
   color: #111;
   line-height: 1.6;
+  overflow-x: auto;
 }
 
 /* content rail */
@@ -44,6 +45,7 @@ body {
 /* hotlinks */
 .hotlinks {
   margin-top: 2rem;
+  /* padding-left: 2rem; */
   text-align: left;
   font-size: 0.95rem;
   color: #444;
@@ -57,49 +59,63 @@ body {
 
 
 /* gallery */
+
+.gallery-wrap {
+  width: 100%;
+  display: flex;
+  overflow: visible;      /* allow page to scroll */
+  padding-left: 50vw;     /* visual centering */
+  padding-right: 50vw;
+}
+
 .gallery {
   margin: 3rem auto;
   padding: 2rem;
+  transform: translateX(-50%); /* visually centers */
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 0.5rem;
+  grid-template-columns: auto auto; /* EXACTLY 2 GROUPS PER ROW */
+  gap: 1rem 0.5rem;
 
   border: 1px dashed #777;
   border-radius: 2%;
+
+  width: max-content; /* shrink to content */
 }
 
 /* group */
 .group {
-  width: 100%;
-  min-width: 0;
-  max-width: 780px;   /* controls "medium" size of entire group */
-  padding: 1.75rem 1.75rem;
+  display: inline-block;   /* shrink-to-fit */
+  width: fit-content;      /* explicit */
+  justify-self: center;     /* ensure it doesn't stretch in grid */
+  align-self: start;
+
+  padding: 2rem 3rem;     
   cursor: pointer;
   border-radius: 10px;
   transition: background-color 0.15s ease;
+  /* border: 1px solid lightgrey; */
 }
 .group:hover {
-  background: #f6f6f6;   /* very subtle cue */
+  background:  #efefef;
 }
 
 .group-grid {
   display: flex;
-  /* gap: 1rem; */
-  align-items: stretch;
+  align-items: stretch;      /* vertical alignment (already fine) */
+  justify-content: center;   /* ← HORIZONTAL CENTERING */
 
-  flex-wrap: nowrap;      
+  flex-wrap: nowrap;
   width: 100%;
 }
 
 .group-grid img {
-  height: 300px;              /* GLOBAL fixed height */
-  width: auto;                /* width adapts */
-  aspect-ratio: 3 / 4;        /* still enforces crop */
-  object-fit: cover;
+  height: 300px;          /* fixed, uniform height */
+  width: auto;            /* natural width */
+  object-fit: contain;    /* NEVER crop */
 
-  flex: 1 1 0;
-  min-width: 0;
+  flex: 0 0 auto;         /* DO NOT shrink or grow */
+  min-width: auto;
 
   border-radius: 8px;
   cursor: pointer;
