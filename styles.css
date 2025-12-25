@@ -12,6 +12,13 @@ body {
   line-height: 1.6;
 }
 
+/* content rail */
+.content-rail {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
 /* header */
 .page-header {
   max-width: 1100px;
@@ -27,24 +34,21 @@ body {
 
 /* description */
 .description {
-  margin-top: 1.25rem;
-  margin: 2rem auto 0; 
-  max-width: 80%;  
+  margin-top: 2rem;
   color: #555;
   text-align: left;
   padding-bottom: 2rem;
-  border-bottom: #777 1px dashed;
+  border-bottom: 1px dashed #777;
 }
 
 /* hotlinks */
 .hotlinks {
-  margin: 2rem auto 0;   
-  max-width: 70%;            
-  text-align: left;         
-  font-size: 0.95rem;         
+  margin-top: 2rem;
+  text-align: left;
+  font-size: 0.95rem;
   color: #444;
   padding-bottom: 2rem;
-  border-bottom: #777 1px dashed;
+  border-bottom: 1px dashed #777;
 }
 .hotlinks a {
   color: #1155cc;
@@ -54,27 +58,34 @@ body {
 
 /* gallery */
 .gallery {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 2rem;
+  margin: 3rem auto;
+  padding: 2rem;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 2.5rem;   /* this is the gap BETWEEN groups */
+  gap: 0.5rem;
 
-  border: #777 1px dashed;
-  border-radius: 2%;;
+  border: 1px dashed #777;
+  border-radius: 2%;
 }
 
+/* group */
 .group {
   width: 100%;
   min-width: 0;
   max-width: 780px;   /* controls "medium" size of entire group */
+  padding: 1.75rem 1.75rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.15s ease;
+}
+.group:hover {
+  background: #f6f6f6;   /* very subtle cue */
 }
 
 .group-grid {
   display: flex;
-  gap: 1rem;
+  /* gap: 1rem; */
   align-items: stretch;
 
   flex-wrap: nowrap;      
@@ -101,12 +112,50 @@ body {
 
 /* footer */
 .page-footer {
-  margin: 4rem 0 2rem;
-  padding-top: 1%;
+  margin: 4rem auto 2rem;
+  padding-top: 2rem;
   text-align: center;
   color: #777;
   font-size: 0.9rem;
-  border-top: #777 1px dashed;
+}
+
+.page-footer .content-rail {
+  border-top: 1px dashed #777;
+}
+
+/* footer chips container */
+.footer-chips {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+}
+
+/* individual chip */
+.footer-chip {
+  display: inline-flex;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 999px;              /* oval / pill */
+  font-size: 0.85rem;
+  align-items: center;      /* vertical centering */
+  justify-content: center;  /* horizontal centering */
+  color: #666;
+  background: transparent;
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* hover effect */
+.footer-chip:hover {
+  background: #f2f2f2;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 /* lightbox */
@@ -120,10 +169,19 @@ body {
   z-index: 999;
 }
 
-.lightbox img {
-  max-width: 95%;
-  max-height: 95%;
-  border-radius: 6px;
+/* row of images */
+.lightbox-row {
+  display: flex;
+  gap: 0;                 /* flush */
+  max-width: 95vw;
+  max-height: 95vh;
+}
+
+.lightbox-row img {
+  height: 90vh;
+  width: auto;
+  object-fit: contain;
+  border-radius: 0;
 }
 
 .hidden {
