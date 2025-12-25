@@ -1,0 +1,131 @@
+/* reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #ffffff;
+  color: #111;
+  line-height: 1.6;
+}
+
+/* header */
+.page-header {
+  max-width: 1100px;
+  margin: 4rem auto 3rem;
+  padding: 0 1.5rem;
+}
+
+.page-header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* description */
+.description {
+  margin-top: 1.25rem;
+  margin: 2rem auto 0; 
+  max-width: 80%;  
+  color: #555;
+  text-align: left;
+  padding-bottom: 2rem;
+  border-bottom: #777 1px dashed;
+}
+
+/* hotlinks */
+.hotlinks {
+  margin: 2rem auto 0;   
+  max-width: 70%;            
+  text-align: left;         
+  font-size: 0.95rem;         
+  color: #444;
+  padding-bottom: 2rem;
+  border-bottom: #777 1px dashed;
+}
+.hotlinks a {
+  color: #1155cc;
+  text-decoration: underline;
+}
+
+
+/* gallery */
+.gallery {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2.5rem;   /* this is the gap BETWEEN groups */
+
+  border: #777 1px dashed;
+  border-radius: 2%;;
+}
+
+.group {
+  width: 100%;
+  min-width: 0;
+  max-width: 780px;   /* controls "medium" size of entire group */
+}
+
+.group-grid {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+
+  flex-wrap: nowrap;      
+  width: 100%;
+}
+
+.group-grid img {
+  height: 300px;              /* GLOBAL fixed height */
+  width: auto;                /* width adapts */
+  aspect-ratio: 3 / 4;        /* still enforces crop */
+  object-fit: cover;
+
+  flex: 1 1 0;
+  min-width: 0;
+
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.group-grid img:hover {
+  transform: scale(1.01);
+}
+
+/* footer */
+.page-footer {
+  margin: 4rem 0 2rem;
+  padding-top: 1%;
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
+  border-top: #777 1px dashed;
+}
+
+/* lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.lightbox img {
+  max-width: 95%;
+  max-height: 95%;
+  border-radius: 6px;
+}
+
+.hidden {
+  display: none;
+}
