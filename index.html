@@ -12,58 +12,17 @@
     <h1>v01dwvrd3n</h1>
     <div class="content-rail">
         <p class="description">
-          I made this in case I die suddenly, unknown for the rest of time, never having a gf. 
-          If I am ever able to trust a beautiful woman fully in my life, then I can potentially remove this, maybe.
-          These are all women who I find extremely beautiful, but who I am unworthy of being with in real life 
-          since I am not enough for them by rule of law in this torture realm. 
+          This is a sample of women who I find extremely beautiful, but who I am unworthy of being with in real life <br>by rule of law in this torture realm. 
         </p>
-        <p class="hotlinks">
+        <!-- <p class="hotlinks">
           Check out my simple explanation here <a href="https://docs.google.com/document/d/1JsV9JjQvNm0vw_xwKF65e5dcn46xD4IvtBTiHVQq85E/preview" target="_blank">here</a>
-        </p>
+        </p> -->
     </div>
   </header>
 
-  <div class="gallery-wrap">
-      <main class="gallery">
-    
-        <!-- GROUP -->
-        <section class="group">
-          <div class="group-grid cols-2">
-            <img src="images/group 1/before.png" alt="" />
-            <img src="images/group 1/after1.png" alt="" />
-            <!-- <img src="images/group 1/after2.png" alt="" /> -->
-          </div>
-        </section>
-    
-        <!-- GROUP -->
-        <section class="group">
-          <div class="group-grid cols-3">
-            <img src="images/group 2/before.png" alt="" />
-            <img src="images/group 2/after1.png" alt="" />
-          </div>
-        </section>
-    
-        <!-- GROUP -->
-        <section class="group">
-          <div class="group-grid cols-4">
-            <img src="images/group 3/before.png" alt="" />
-            <img src="images/group 3/after1.png" alt="" />
-            <img src="images/group 3/after2.png" alt="" />
-          </div>
-        </section>
+  <<main class="gallery"></main>
 
-        <!-- GROUP -->
-        <section class="group">
-          <div class="group-grid cols-4">
-            <img src="images/group 4/before.png" alt="" />
-            <img src="images/group 4/after1.png" alt="" />
-          </div>
-        </section>
-    
-      </main>
-  </div>
-
-  <footer class="page-footer">
+  <!-- <footer class="page-footer">
     <div class="content-rail">
       <div class="footer-chips">
         <span class="footer-chip">Coming to you live from the depths of Hell</span>
@@ -71,14 +30,29 @@
         <span class="footer-chip">Sadistic nihilist from beyond the grave</span>
       </div>
     </div>
-  </footer>
+  </footer> -->
 
   <!-- lightbox -->
   <div id="lightbox" class="lightbox hidden">
     <div id="lightbox-row"></div>
   </div>
 
-  <script src="galleryWidth.js"></script>
+  <script>
+    window.addEventListener("load", () => {
+    const gallery = document.querySelector(".gallery");
+    const groups = Array.from(document.querySelectorAll(".group"));
+
+    let max = 0;
+
+    groups.forEach(g => {
+      const w = g.getBoundingClientRect().width;
+      if (w > max) max = w;
+    });
+
+    gallery.style.setProperty("--col-width", `${Math.ceil(max)}px`);
+  });
+  </script>
+  <script src="loadGallery.js"></script>
   <script src="lightbox.js"></script>
 
 </body>
