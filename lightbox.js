@@ -4,6 +4,16 @@ const lightboxRow = document.getElementById("lightbox-row");
 const isMobile = () =>
   window.matchMedia("(max-width: 768px)").matches;
 
+function lockScroll() {
+  document.body.style.position = "fixed";
+  document.body.style.width = "100%";
+}
+
+function unlockScroll() {
+  document.body.style.position = "";
+  document.body.style.width = "";
+}
+
 /* -------- EVENT DELEGATION -------- */
 document.addEventListener("click", (e) => {
 
@@ -30,7 +40,7 @@ document.addEventListener("click", (e) => {
     }
 
     lightboxRow.appendChild(single);
-    document.body.style.overflow = "hidden";
+    lockScroll();
     lightbox.classList.remove("hidden");
     return;
   }
@@ -66,7 +76,7 @@ document.addEventListener("click", (e) => {
           lightboxRow.appendChild(el);
         });
 
-        document.body.style.overflow = "hidden";
+        lockScroll();
         lightbox.classList.remove("hidden");
         return;
       }
@@ -91,7 +101,7 @@ document.addEventListener("click", (e) => {
         lightboxRow.appendChild(el);
       });
 
-      document.body.style.overflow = "hidden";
+      lockScroll();
       lightbox.classList.remove("hidden");
     });
   }
@@ -99,7 +109,7 @@ document.addEventListener("click", (e) => {
 
 /* -------- CLOSE -------- */
 lightbox.addEventListener("click", () => {
+  unlockScroll();
   lightbox.classList.add("hidden");
   lightboxRow.innerHTML = "";
-  document.body.style.overflow = "";
 });
