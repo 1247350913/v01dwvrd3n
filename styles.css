@@ -124,7 +124,7 @@ body {
 
 .group-grid img {
   height: 300px;          /* fixed, uniform height */
-  width: auto;            /* natural width */
+  width: max-content;     /* allow overflow right */
   object-fit: contain;    /* NEVER crop */
 
   flex: 0 0 auto;         /* DO NOT shrink or grow */
@@ -221,9 +221,22 @@ body {
 @media (max-width: 768px) {
 
   /* --- GLOBAL MOBILE RESET --- */
+  html,
   body {
-    min-width: 100%;
-    overflow-x: hidden;
+    width: 100%;
+    min-width: 100% !important;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Prevent layout viewport from exceeding screen */
+  body {
+    position: relative;
+  }
+
+  /* Header fixes */
+  .page-header {
+    margin-bottom: 0;
   }
 
   /* --- GALLERY: left-anchored vertical list --- */
@@ -236,7 +249,8 @@ body {
     max-width: 100%;
     min-width: 100%;
 
-    margin: 1.5rem 0;
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
     padding-left: 1rem;            /* ← visible left offset */
     padding-right: 1rem;
 
@@ -246,7 +260,7 @@ body {
   /* --- GROUP CARD: wraps content width, not full row --- */
   .group {
     display: inline-block;
-    width: auto;
+    width: max-content;
     overflow: visible;
 
     padding: 1rem 2rem;
@@ -262,6 +276,7 @@ body {
   .group-grid {
     display: flex;
     justify-content: flex-start;
+    width: max-content;
 
     overflow-x: auto;
     overflow-y: hidden;
@@ -308,7 +323,6 @@ body {
     align-items: center;
     justify-content: flex-start;
 
-    padding-left: 5vw;
     padding-right: 5vw;
 
     overflow-x: auto;
@@ -317,6 +331,11 @@ body {
     gap: 0;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
+  }
+  #lightbox-row::before {
+    content: "";
+    flex: 0 0 5vw;           /* same as left padding */
+    scroll-snap-align: start;
   }
 
   #lightbox-row img {

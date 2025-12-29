@@ -69,8 +69,8 @@ document.addEventListener("click", (e) => {
         images.forEach(img => {
           const el = document.createElement("img");
           el.src = img.src;
-          el.style.width = "66.666vw";   // 2/3 screen
-          el.style.height = "auto";
+          el.style.width = "auto";   
+          el.style.height = "70vh";
           el.style.maxHeight = "85vh";
           el.style.objectFit = "contain";
           lightboxRow.appendChild(el);
