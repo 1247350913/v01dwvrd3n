@@ -12,7 +12,7 @@
     <h1>v01dwvrd3n</h1>
     <div class="content-rail">
         <p class="description">
-          This is a sample of women who I find extremely beautiful, but who I am unworthy of being with in real life <br>by rule of law in this torture realm. 
+          Welcome to pain, failure, sorrow, despair, you name it.
         </p>
         <!-- <p class="hotlinks">
           Check out my simple explanation here <a href="https://docs.google.com/document/d/1JsV9JjQvNm0vw_xwKF65e5dcn46xD4IvtBTiHVQq85E/preview" target="_blank">here</a>
@@ -20,7 +20,7 @@
     </div>
   </header>
 
-  <<main class="gallery"></main>
+  <main class="gallery"></main>
 
   <!-- <footer class="page-footer">
     <div class="content-rail">
@@ -37,21 +37,7 @@
     <div id="lightbox-row"></div>
   </div>
 
-  <script>
-    window.addEventListener("load", () => {
-    const gallery = document.querySelector(".gallery");
-    const groups = Array.from(document.querySelectorAll(".group"));
-
-    let max = 0;
-
-    groups.forEach(g => {
-      const w = g.getBoundingClientRect().width;
-      if (w > max) max = w;
-    });
-
-    gallery.style.setProperty("--col-width", `${Math.ceil(max)}px`);
-  });
-  </script>
+  <script src="galleryWidth.js"></script>
   <script src="loadGallery.js"></script>
   <script src="lightbox.js"></script>
 

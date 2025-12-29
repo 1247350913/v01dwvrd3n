@@ -11,6 +11,7 @@ body {
   color: #111;
   line-height: 1.6;
   overflow-x: auto;
+  min-width: calc(var(--col-width, 700px) * 2 + 16rem);
 }
 
 /* content rail */
@@ -49,7 +50,7 @@ body {
   top: 0;
   transform: translateX(-50%);
 
-  width: calc(100vw - 200px); /* page width minus side padding */
+  width: calc(var(--col-width, 700px) * 2 + 8rem);
   border-top: 1px dashed #777;
 }
 .description::after {
@@ -59,7 +60,7 @@ body {
   bottom: 0;
   transform: translateX(-50%);
 
-  width: calc(100vw - 400px); /* page width minus side padding */
+  width: calc(var(--col-width, 700px) * 2 + 2rem);
   border-bottom: 1px dashed #777;
 }
 
@@ -84,9 +85,10 @@ body {
   display: grid;
   grid-template-columns: var(--col-width) var(--col-width);
   justify-content: center;
-  column-gap: 1rem;
+  column-gap: .25rem;
 
   max-width: 1100px;
+  min-width: calc(var(--col-width) * 2 + .25rem);
   margin: 3rem auto;
   padding: 2rem;
 }
