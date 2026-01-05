@@ -14,6 +14,16 @@ body {
   min-width: calc(var(--col-width, 700px) * 2 + 16rem);
 }
 
+/* title link */
+.title-link,
+.title-link:visited,
+.title-link:hover,
+.title-link:active {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* content rail */
 .content-rail {
   max-width: 1200px;

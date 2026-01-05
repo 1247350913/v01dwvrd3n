@@ -1,7 +1,7 @@
 const gallery = document.querySelector(".gallery");
 
 // CONFIG
-const GROUP_COUNT = 6; 
+const GROUP_COUNT = 200; 
 const FILE_BASES = ["before", "after1", "after2", "after3"];
 const EXTENSIONS = ["png", "jpg", "jpeg", "webp"];
 
